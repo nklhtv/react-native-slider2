@@ -70,6 +70,11 @@ final class SliderView extends FrameLayout {
         }
     }
 
+    @Override
+    public boolean onTouchEvent(@NonNull final MotionEvent event) {
+        return mSlider.onTouchEvent(event);
+    }
+
     public void setValue(final int value) {
         UiThreadUtil.runOnUiThread(new Runnable() {
 
