@@ -15,14 +15,16 @@ class Slider extends Component {
 
     shouldComponentUpdate(nextProps, nextState) {
         return nextProps.style !== this.props.style ||
-            nextProps.value !== this.props.value;
+            nextProps.value !== this.props.value ||
+            nextProps.maxValue !== this.props.maxValue;
     }
-    
+
     render() {
         return (
-            <RCTSliderView 
+            <RCTSliderView
                 style={this.props.style}
                 value={this.props.value}
+                maxValue={this.props.maxValue}
                 {...this.callbacks}
             />
         );
@@ -39,12 +41,14 @@ class Slider extends Component {
 Slider.propTypes = {
     ...View.propTypes,
     value: PropTypes.number.isRequired,
+    maxValue: PropTypes.number.isRequired,
     onSliding: PropTypes.func,
     onSlidingComplete: PropTypes.func
 };
 
 Slider.defaultProps = {
-    value: 0
+    value: 0,
+    maxValue: 100
 };
 
 const RCTSliderViewInterface = {
@@ -52,6 +56,7 @@ const RCTSliderViewInterface = {
     propTypes: {
         ...View.propTypes,
         value: PropTypes.number.isRequired,
+        maxValue: PropTypes.number.isRequired,
         [RCTSliderViewConstants.ON_SLIDING]: PropTypes.func,
         [RCTSliderViewConstants.ON_SLIDING_COMPLETE]: PropTypes.func
     }
@@ -59,7 +64,8 @@ const RCTSliderViewInterface = {
 
 const RCTSliderView = requireNativeComponent('RCTSliderView', RCTSliderViewInterface, {
     nativeOnly: {
-        value: true
+        value: true,
+        maxValue: true
     }
 });
 

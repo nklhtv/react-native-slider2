@@ -52,4 +52,9 @@ final class SliderViewManager extends SimpleViewManager<SliderView> {
         sliderView.setValue(value);
     }
 
+    @ReactProp(name = SliderProps.MAX_VALUE_PROP)
+    public void setMaxValue(@NonNull final SliderView sliderView, final int maxValue) {
+        sliderView.setMaxValue(maxValue);
+    }
+
 }

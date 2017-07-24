@@ -89,4 +89,8 @@ final class SliderView extends FrameLayout {
         });
     }
 
+    public void setMaxValue(final int maxValue) {
+        mSlider.setMax(maxValue);
+    }
+
 }
