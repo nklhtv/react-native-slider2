@@ -2,6 +2,7 @@ package com.stellarscript.slider;
 
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.widget.FrameLayout;
 import android.widget.SeekBar;
 
