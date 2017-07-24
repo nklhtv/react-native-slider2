@@ -26,7 +26,7 @@ public final class SliderPackage implements ReactPackage {
 
     @Override
     public List<ViewManager> createViewManagers(@NonNull final ReactApplicationContext reactApplicationContext) {
-        return Collections.emptyList();
+        return Arrays.<ViewManager>asList(new SliderViewManager());
     }
 
 }
