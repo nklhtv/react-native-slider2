@@ -21,9 +21,11 @@ final class SliderView extends FrameLayout {
 
         @Override
         public void onProgressChanged(@NonNull final SeekBar seekBar, final int progress, final boolean fromUser) {
-            final WritableMap event = Arguments.createMap();
-            event.putInt(SliderEvents.ON_SLIDING_VALUE_PROP, progress);
-            mEventEmitter.receiveEvent(SliderView.this.getId(), SliderEvents.ON_SLIDING_EVENT, event);
+            if (fromUser) {
+                final WritableMap event = Arguments.createMap();
+                event.putInt(SliderEvents.ON_SLIDING_VALUE_PROP, progress);
+                mEventEmitter.receiveEvent(SliderView.this.getId(), SliderEvents.ON_SLIDING_EVENT, event);
+            }
         }
 
         @Override
