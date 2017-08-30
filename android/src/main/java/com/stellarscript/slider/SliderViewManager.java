@@ -48,13 +48,15 @@ final class SliderViewManager extends SimpleViewManager<SliderView> {
     }
 
     @ReactProp(name = SliderProps.VALUE_PROP)
-    public void setValue(@NonNull final SliderView sliderView, final int value) {
-        sliderView.setValue(value);
+    public void setValue(@NonNull final SliderView sliderView, final double value) {
+        final int newValue = (int) Math.min(value, Integer.MAX_VALUE);
+        sliderView.setValue(newValue);
     }
 
     @ReactProp(name = SliderProps.MAX_VALUE_PROP)
-    public void setMaxValue(@NonNull final SliderView sliderView, final int maxValue) {
-        sliderView.setMaxValue(maxValue);
+    public void setMaxValue(@NonNull final SliderView sliderView, final double maxValue) {
+        final int newMaxValue = (int) Math.min(maxValue, Integer.MAX_VALUE);
+        sliderView.setMaxValue(newMaxValue);
     }
 
 }
