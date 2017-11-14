@@ -42,8 +42,8 @@ Slider.propTypes = {
     ...View.propTypes,
     value: PropTypes.number.isRequired,
     maxValue: PropTypes.number.isRequired,
-    onSliding: PropTypes.func,
-    onSlidingComplete: PropTypes.func
+    [RCTSliderViewConstants.ON_SLIDING]: PropTypes.func,
+    [RCTSliderViewConstants.ON_SLIDING_COMPLETE]: PropTypes.func
 };
 
 Slider.defaultProps = {
